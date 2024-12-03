@@ -57,9 +57,49 @@ namespace Bibliotec_mvc.Controllers
             novoLivro.Escritor = form["Escritor"].ToString();
             novoLivro.Idioma = form["Idioma"].ToString();
 
+            if(form.Files.Count > 0){
+                var arquivo = form.Files[0];
+                var pasta = Path.Combine(Directory.GetCurrentDirectory(),"wwwroot/images/Livros");
+                if(Directory.Exists (pasta)){
+                    Directory.CreateDirectory(pasta);
+                }
+
+                var caminho = Path.Combine(pasta, arquivo.FileName);
+
+                using (var stream = new FileStream(caminho, FileMode.Create)){
+                    arquivo.CopyTo(stream);
+                }
+                novoLivro.Imagem = arquivo.FileName;
+              }else{
+                novoLivro.Imagem = "padrao.png";
+              }
+
+            
+
+
             context.Livro.Add(novoLivro);
 
             context.SaveChanges();
+
+            List<LivroCategoria> listaLivroCategorias = new List<LivroCategoria>();
+            
+            string[] categoriaSelessionadas = form["Categoria"].ToString().Split(',');
+
+            foreach(string categoria in categoriaSelessionadas){
+                LivroCategoria livroCategoria = new LivroCategoria();
+                livroCategoria.CategoriaID = int.Parse(categoria);
+                livroCategoria.LivroID = novoLivro.LivroID;
+
+                listaLivroCategorias.Add(livroCategoria);
+            }
+            context.LivroCategoria.AddRange(listaLivroCategorias);
+
+            context.SaveChanges();
+
+            return LocalRedirect("~/Livro/Cadastro");
+
+
+            
         
         }
 
