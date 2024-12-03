@@ -27,7 +27,7 @@
                 <tr>
                     <td data-cell="titulo">@livro.Nome</td>
                     <td data-cell="reservado">@(ViewBag.LivrosComReserva.ContainsKey(livro.LivroId) ? "Sim " : "Nao")</td>
-                    <td data-cell="data devol.">@(ViewBag.LivrosComReserva.ContainsKey(livro.LivroId) serva? ViewBag.LivrosComReserva[livro.LivroID].ToString("dd/MM/yyyy") :"Nao possui reserva")</td>
+                    <td data-cell="data devol.">@(ViewBag.LivrosComReserva.ContainsKey(livro.LivroId) ? ViewBag.LivrosComReserva[livro.LivroID].ToString("dd/MM/yyyy") :"Nao possui reserva")</td>
                     <td class="icon" data-cell="editar"><a class="navbar-item"><img style="width: 40px;"
                                 src="~/images/editar.svg" alt=""></a></td>
                     <td class="icon" data-cell="detalhes"><a class="navbar-item"><img style="width: 40px;"

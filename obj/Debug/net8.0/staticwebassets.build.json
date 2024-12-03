@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "mJ4D2WOezQHZb5QXnqAEsDpA52l/0KjFVXVAeQpB1v4=",
+  "Hash": "PPgPDhs7DKmmTSXCbCdDXdvdysejxmbXEwAJ86gh36k=",
   "Source": "Bibliotec",
   "BasePath": "_content/Bibliotec",
   "Mode": "Default",
@@ -452,6 +452,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\em-formacao (1) 1.svg"
+    },
+    {
+      "Identity": "C:\\Users\\54261396874\\Desktop\\Bibliotec Atualizada\\Bibliotec_mvc\\wwwroot\\images\\excluir.svg",
+      "SourceId": "Bibliotec",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\54261396874\\Desktop\\Bibliotec Atualizada\\Bibliotec_mvc\\wwwroot\\",
+      "BasePath": "_content/Bibliotec",
+      "RelativePath": "images/excluir.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\excluir.svg"
     },
     {
       "Identity": "C:\\Users\\54261396874\\Desktop\\Bibliotec Atualizada\\Bibliotec_mvc\\wwwroot\\images\\facebook-icon.png",
