@@ -128,7 +128,7 @@ namespace Bibliotec_mvc.Controllers
            livroAtualizado.Descricao = form["Descricao"];
 
           //UPLOAD DA IMAGEM
-           if(imagem.Length > 0){
+           if(imagem != null && imagem.Length > 0){
                var caminhoImagem = Path.Combine("wwwroot/images/Livros",imagem.FileName);
                if(string.IsNullOrEmpty(livroAtualizado.Imagem)){
 
@@ -169,6 +169,21 @@ namespace Bibliotec_mvc.Controllers
              return LocalRedirect("/Livro");
         }
 
+        [Route("Excluir/{id}")]
+        public IActionResult Excluir(int id){
+            Livro livroEncontrado = context.Livro.First(livro => livro.LivroID == id);
+
+            var categoriasDoLivro = context.LivroCategoria.Where(livro =>livro.LivroID == id).ToList();
+
+            foreach(var categoria in categoriasDoLivro){
+                context.LivroCategoria.Remove(categoria);
+            }
+
+            context.Livro.Remove(livroEncontrado);
+
+            context.SaveChanges();
+            return LocalRedirect("/Livro");
+        }
 
 
 
